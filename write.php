@@ -1,24 +1,30 @@
 <?php
-require_once('conn.php');
-?>
-<!DOCTYPE html>
-<html>
+session_start();
+if(!isset($_SESSION['is_login'])){
+    header('Location: login.php');
+}
+
+ ?>
   <head>
     <meta charset="utf-8">
-    <title></title>
   </head>
   <center>
   <body>
   <table border="0" width="800px">
     <tr align="center">
-      <td colspan="2"><a href="main.php"
+      <td colspan="3"><a href="main.php"
       style="text-decoration:none;color:black"><h1>게시판</h1></a></td>
     </tr>
     <tr align="right" height="40px">
-      <td>로그인정보</td>
-      <form name="" action="logout.php" method="post">
-      <td width="120px" align="right"><input type="submit" value="로그아웃"
-        style="height:40px; width:70%"></td>
+      <td>
+            <?php echo $_SESSION['user_id'];?> 님 안녕하세요.
+      </td>
+      <td width="70px" align="right">
+        <input type="button" value="글쓰기" onClick="location.href='write.php'" align="right" style="height:40px; width:70px">
+      </td>
+      <form action="logout.php" method="post">
+      <td width="70px" align="right"><input type="submit" value="로그아웃"
+        style="height:40px; width:70px"></td>
       </tr>
   </table>
 
@@ -29,13 +35,15 @@ require_once('conn.php');
     <td width="120px" align="center">닉네임</td>
     <td width="190px" align="center">게시일</td>
   </tr>
-  <hr width="800">
+  <hr width="800" style="margin-top: 0px; margin-bottom: 0px;">
    <?php
-   $sql="SELECT * FROM topic";
+   require_once('conn.php');
+   $sql = "SELECT topic.*, user.name
+   FROM topic INNER JOIN user ON  topic.author = user.user_no";
    $result = mysqli_query($conn,$sql);
    while($row = mysqli_fetch_assoc($result)){?>
-        <table border="0" width="800px" height="30px" >
-        <hr width="800">
+        <table border="0" width="800px" height="35px" >
+        <hr width="800" style="margin-top: 0px; margin-bottom: 0px;">
     <tr>
       <td width="40px" align="center">
       <?php echo htmlspecialchars($row['topic_id']);?>
@@ -46,7 +54,7 @@ require_once('conn.php');
 
      </td>
      <td width="120px" align="center">
-      <?php echo htmlspecialchars($row['author']);?>
+      <?php echo $row['name'];?>
      </td>
      <td width="190px" align="center">
         <?php echo htmlspecialchars($row['created']);?>
@@ -56,11 +64,11 @@ require_once('conn.php');
 <?php
 }
  ?>
-  <hr width="800">
+  <hr width="800" style="margin-top: 0px; margin-bottom: 0px;">
   <article>
   <?php
   if(empty($_GET['id'])){
-  $cao ="Copyright @ cao ni mei";
+
   } else {
   $id = mysqli_real_escape_string($conn, $_GET['id']);
   $sql = "SELECT topic_id, title, description, nick_name, created
@@ -68,7 +76,7 @@ require_once('conn.php');
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_assoc($result);
 
-  ?>
+   ?>
   <table border="0" width="800px">
     <tr align="center">
       <td><h2><?=htmlspecialchars($row['title'])?></h2></td>
@@ -122,6 +130,5 @@ require_once('conn.php');
   </tr>
   </table>
     <input type="Submit" value="입 력" style="height:50px; width:800px">
-    <p>
-    <?php echo $cao; ?>
+    
 </html>

@@ -12,16 +12,19 @@ if(!isset($_SESSION['is_login'])){
   <body>
   <table border="0" width="800px">
     <tr align="center">
-      <td colspan="2"><a href="main.php"
+      <td colspan="3"><a href="main.php"
       style="text-decoration:none;color:black"><h1>게시판</h1></a></td>
     </tr>
     <tr align="right" height="40px">
       <td>
-            <?php echo $_SESSION['user_id'];?> 님이 접속하셨습니다.
+            <?php echo $_SESSION['user_id'];?> 님 안녕하세요.
       </td>
-      <form name="" action="logout.php" method="post">
-      <td width="120px" align="right"><input type="submit" value="로그아웃"
-        style="height:40px; width:70%"></td>
+      <td width="70px" align="right">
+        <input type="button" value="글쓰기" onClick="location.href='write.php'" align="right" style="height:40px; width:70px">
+      </td>
+      <form action="logout.php" method="post">
+      <td width="70px" align="right"><input type="submit" value="로그아웃"
+        style="height:40px; width:70px"></td>
       </tr>
   </table>
 

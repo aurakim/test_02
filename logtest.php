@@ -11,12 +11,18 @@
 
       $row = mysqli_fetch_assoc($result);
       // var_dump($row);
-      if ($row) {
-      $_SESSION['user_id']=$user_id;
-      $_SESSION['password']=$user_pw;
+
+      if ($result->num_rows > 0) {
+
+      $_SESSION['user_id'] = $user_id;
+      $_SESSION['password'] = $user_pw;
+      $_SESSION['is_login'] = true;
         header("location: main.php");
-      exit;
+        exit;
+
       }else{
+
+
       session_destroy();
       echo '<br />';
       echo '아이디 또는 패스워드가 잘못되었습니다';
