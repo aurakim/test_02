@@ -1,6 +1,7 @@
 <?php
  require_once('page/ses.php');
  ?>
+<center>
 <table border="0" width="800px" height="50px" bgcolor="#D3D3D3">
 
 <tr>
@@ -18,7 +19,7 @@ FROM topic INNER JOIN user ON  topic.author = user.user_no";
 $result = mysqli_query($conn,$sql);
 while($row = mysqli_fetch_assoc($result)){?>
 
-  <table border="0" width="800px" height="35px" >
+  <table border="0" width="800px" height="35px" align="center">
 
 <tr>
 <td width="40px" align="center">
@@ -39,6 +40,7 @@ while($row = mysqli_fetch_assoc($result)){?>
 
 </table>
 <hr width="800" style="margin-top: 0px; margin-bottom: 0px;">
+</center>
 <?php
 }
 ?>

@@ -23,3 +23,4 @@
           <a href="logout.php" style="text-decoration:none;color:black">로그아웃</a></td>
       </tr>
   </table>
+</center>

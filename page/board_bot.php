@@ -1,8 +1,8 @@
-
+<center>
 <article>
 <?php
 if(empty($_GET['id'])){
-echo "Copyright @ cao ni mei";
+echo "";
 } else {
 $id = mysqli_real_escape_string($conn, $_GET['id']);
 $sql = "SELECT topic_id, title, description, nick_name, created
@@ -24,12 +24,12 @@ $row = mysqli_fetch_assoc($result);
 
 </table>
 <?php
-require_once('page/cao.php');
+
 }
 
 ?>
 </article>
 </body>
-
+<?php require_once('page/cao.php'); ?>
 </center>
 </html>
