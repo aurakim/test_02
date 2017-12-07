@@ -36,6 +36,7 @@
   </tbody>
 </table>
 </form>
+<?require_once('page/cao.php');?>
   </center>
   </body>
 </html>
