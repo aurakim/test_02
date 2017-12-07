@@ -1,11 +1,10 @@
 <?php
+die;
 session_start();
-if(!isset($_SESSION['is_login'])){
-    // header('Location: login.php');
-}
-
-echo ('sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss');
+require_once('conn.php');
 echo $_SESSION['user_id'];
+echo ('sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss');
+
 
 
 

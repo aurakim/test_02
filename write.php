@@ -26,6 +26,7 @@ if(!isset($_SESSION['is_login'])){
       <td width="70px" align="right"><input type="submit" value="로그아웃"
         style="height:40px; width:70px"></td>
       </tr>
+    </form>
   </table>
 
       <table border="0" width="800px" height="50px" bgcolor="#D3D3D3">
@@ -98,37 +99,30 @@ if(!isset($_SESSION['is_login'])){
 
 
 <center>
-<table border="1" width="800px">
-  <form action="process.php" method="post">
-  <tr>
-    <td align="center" bgcolor="#D3D3D3" width=100px>제 목</td>
+<table border="0" width="800px">
+
+  <tr width="800px">
+    <td align="center" bgcolor="#D3D3D3" width="100px">제 목</td>
     <td><input type="text" name="title" style="height:50px; width:100%"
-      placeholder="제목을 적어주세요."></td>
+      placeholder="&#13;       제목을 적어주세요."></td>
+  </tr>
+  <tr width="800px">
+    <td align="center" bgcolor="#D3D3D3" width="100px">내 용</td>
+    <td><textarea name="description" style="height:400px; width:100%"
+      placeholder="
+      &#13;&#10;
+      &#13;&#10;
+      &#13;&#10;
+      &#13;&#10;
+      &#13;&#10;
+      &#13;&#10;
+    본문을 적어주세요."></textarea></td>
   </tr>
   <tr>
-    <td align="center" bgcolor="#D3D3D3" width="100px">내 용</td>
-    <td><textarea name="description" rows="40" cols="95"
-      placeholder="&#13;&#10;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-본문을 적어주세요."></textarea></td>
+    <form action="process.php" method="post">
+    <td colspan="2"><input type="Submit" value="입 력" style="height:50px; width:800px"></td>
   </tr>
-  </table>
-    <input type="Submit" value="입 력" style="height:50px; width:800px">
-    
+</table>
+</form>
+</center>
 </html>
