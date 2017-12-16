@@ -27,8 +27,8 @@
           <td colspan="2"><input id="NickName" type="text" name="nick_name" placeholder="NickName" style="height:50px; width:100%"></td>
       </tr>
       <tr>
-          <th width="120" height="50"><label for="Birthday">이름</label></th>
-          <td colspan="2"><input id="Birthday" type="text" name="name" placeholder="&#34;통장주&#34; 명과 일치하는 이름" style="height:50px; width:100%"></td>
+          <th width="120" height="50"><label for="name">이름</label></th>
+          <td colspan="2"><input id="name" type="text" name="name" placeholder="&#34;통장주&#34; 명과 일치하는 이름" style="height:50px; width:100%"></td>
       </tr>
       <tr>
           <th rowspan="2" width="120"><label for="bank_name">은행</label></th>
@@ -41,6 +41,14 @@
       </tr>
       <tr>
           <td><input id="bankname" type="text" name="accountnumber" placeholder="AccountNumber" style="height:50px; width:100%">
+      </tr>
+      <tr>
+
+        <th width="120" height="50"><label for="Birthday">생년월일</label></th>
+          </th>
+          <td><input id="Birthday" type="date" name="date"
+               placeholder="" style="height:50px; width:100%"></td>
+          </td>
       </tr>
       <tr>
           <td colspan="3"><input type="submit" value="가입하기" style="height:50px; width:100%"></td>
